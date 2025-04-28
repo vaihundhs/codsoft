@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team India | Official Fan Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --blue: #1a3e8c;
+            --light-blue: #0066b3;
+            --orange: #ff9933;
+            --white: #ffffff;
+            --dark: #333333;
+            --light-gray: #f5f5f5;
+            --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-gray);
+            color: var(--dark);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .logo h1 {
+            color: var(--blue);
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+
+        .cta-button {
+            background-color: var(--orange);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            background-color: var(--blue);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* Upcoming Matches */
+        .matches {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--blue);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--dark);
+        }
+
+        .match-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .match-card {
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .match-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .teams {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .team {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .team img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .vs {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--orange);
+        }
+
+        .match-info {
+            margin-top: 15px;
+        }
+
+        .match-info p {
+            margin-bottom: 5px;
+        }
+
+        .match-date {
+            font-weight: bold;
+            color: var(--blue);
+        }
+
+        /* Players Section */
+        .players {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+
+        .player-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .player-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .player-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .player-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .player-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .player-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            color: var(--blue);
+        }
+
+        .player-info p {
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .player-role {
+            color: var(--orange);
+            font-weight: 600;
+            margin: 10px 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            color: var(--blue);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--orange);
+        }
+
+        /* News Section */
+        .news {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .news-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .news-card {
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .news-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 20px;
+        }
+
+        .news-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--blue);
+        }
+
+        .news-content p {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .read-more {
+            color: var(--orange);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--blue);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--orange);
+            padding-left: 5px;
+        }
+
+        .social-links-footer {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links-footer a {
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-links-footer a:hover {
+            color: var(--orange);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="BCCI_logo.png" alt="BCCI Logo">
+                    <h1>Team India</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="#">Home</a>
+                    <a href="#">Matches</a>
+                    <a href="#">Players</a>
+                    <a href="#">News</a>
+                    <a href="#">Gallery</a>
+                </div>
+                <button class="cta-button">Buy Tickets</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>#1 Cricket Team in the World</h2>
+            <p>Join millions of fans in supporting Team India in their journey to victory across all formats of the game.</p>
+            <button class="cta-button">Watch Live</button>
+        </div>
+    </section>
+
+    <!-- Upcoming Matches -->
+    <section class="matches">
+        <div class="container">
+            <div class="section-title">
+                <h2>Upcoming Matches</h2>
+                <p>Don't miss the action as Team India takes on the world's best</p>
+            </div>
+            <div class="match-cards">
+                <div class="match-card">
+                    <div class="teams">
+                        <div class="team">
+                            <img src="BCCI_logo.png" alt="India">
+                            <span>INDIA</span>
+                        </div>
+                        <span class="vs">VS</span>
+                        <div class="team">
+                            <img src="Cricket_Australia.png" alt="Australia">
+                            <span>AUSTRALIA</span>
+                        </div>
+                    </div>
+                    <div class="match-info">
+                        <p class="match-date">15 Oct 2023</p>
+                        <p>ICC World Cup 2023</p>
+                        <p>Wankhede Stadium, Mumbai</p>
+                    </div>
+                </div>
+                <div class="match-card">
+                    <div class="teams">
+                        <div class="team">
+                            <img src="BCCI_logo.png" alt="India">
+                            <span>INDIA</span>
+                        </div>
+                        <span class="vs">VS</span>
+                        <div class="team">
+                            <img src="England_cricket_team_logo.svg.png" alt="England">
+                            <span>ENGLAND</span>
+                        </div>
+                    </div>
+                    <div class="match-info">
+                        <p class="match-date">29 Oct 2023</p>
+                        <p>ICC World Cup 2023</p>
+                        <p>Eden Gardens, Kolkata</p>
+                    </div>
+                </div>
+                <div class="match-card">
+                    <div class="teams">
+                        <div class="team">
+                            <img src="BCCI_logo.png" alt="India">
+                            <span>INDIA</span>
+                        </div>
+                        <span class="vs">VS</span>
+                        <div class="team">
+                            <img src="images.png" alt="Pakistan">
+                            <span>PAKISTAN</span>
+                        </div>
+                    </div>
+                    <div class="match-info">
+                        <p class="match-date">12 Nov 2023</p>
+                        <p>ICC World Cup 2023</p>
+                        <p>Narendra Modi Stadium, Ahmedabad</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Players Section -->
+    <section class="players">
+        <div class="container">
+            <div class="section-title">
+                <h2>Star Players</h2>
+                <p>Meet the heroes who make India proud on the cricket field</p>
+            </div>
+            <div class="player-cards">
+                <div class="player-card">
+                    <img src="https://www.cricbuzz.com/a/img/v1/152x152/i1/c170661/virat-kohli.jpg" alt="Virat Kohli" class="player-img">
+                    <div class="player-info">
+                        <h3>Virat Kohli</h3>
+                        <p class="player-role">Batsman</p>
+                        <p>Former Captain | Run Machine</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="player-card">
+                    <img src="https://www.cricbuzz.com/a/img/v1/152x152/i1/c170677/rohit-sharma.jpg" alt="Rohit Sharma" class="player-img">
+                    <div class="player-info">
+                        <h3>Rohit Sharma</h3>
+                        <p class="player-role">Batsman</p>
+                        <p>Captain | Hitman</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="player-card">
+                    <img src="Jasprit_Bumrah_in_PMO_New_Delhi.jpg" alt="Jasprit Bumrah" class="player-img">
+                    <div class="player-info">
+                        <h3>Jasprit Bumrah</h3>
+                        <p class="player-role">Bowler</p>
+                        <p>Fast Bowling Spearhead</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="player-card">
+                    <img src="ANI-20250311064947.jpg" alt="KL Rahul" class="player-img">
+                    <div class="player-info">
+                        <h3>KL Rahul</h3>
+                        <p class="player-role">Wicketkeeper-Batsman</p>
+                        <p>Vice-Captain | Mr. Dependable</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest News</h2>
+                <p>Stay updated with the latest happenings in Indian cricket</p>
+            </div>
+            <div class="news-cards">
+                <div class="news-card">
+                    <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" alt="Cricket News" class="news-img">
+                    <div class="news-content">
+                        <h3>India Tops ICC ODI Rankings</h3>
+                        <p>Team India has reclaimed the #1 spot in ICC ODI rankings after a dominant series win against Australia.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" alt="Cricket News" class="news-img">
+                    <div class="news-content">
+                        <h3>Virat Kohli Hits 50th ODI Century</h3>
+                        <p>King Kohli creates history by surpassing Sachin's record of 49 centuries in ODI cricket.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <img src="https://images.unsplash.com/photo-1606923829579-0cb981a83e2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" alt="Cricket News" class="news-img">
+                    <div class="news-content">
+                        <h3>BCCI Announces New Coaching Staff</h3>
+                        <p>The Board of Control for Cricket in India has appointed new support staff for the upcoming World Cup.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Team India</h3>
+                    <p>The official fan page of the Indian Cricket Team. Join us in supporting our champions!</p>
+                    <div class="social-links-footer">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Fixtures</a></li>
+                        <li><a href="#">Results</a></li>
+                        <li><a href="#">Rankings</a></li>
+                        <li><a href="#">Records</a></li>
+                        <li><a href="#">History</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Information</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About BCCI</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for latest updates on Team India</p>
+                    <form>
+                        <input type="email" placeholder="Your Email" style="padding: 10px; width: 100%; margin-bottom: 10px; border-radius: 5px; border: none;">
+                        <button class="cta-button" style="width: 100%;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Team India Fan Page. Not affiliated with BCCI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
